@@ -1,0 +1,76 @@
+.main-wrapper {
+    display: flex;
+    justify-content: center; /* 主轴线居中 */
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  .waybill-container {
+    position: relative;
+    width: 650px;  /* 匹配你的模板尺寸 */
+
+    text-align: center;
+    background: white;
+    padding: 0px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    
+}
+#result {
+    position: absolute; top: 68px; left: 63px; width: 200px; height: 25px; border: 1px solid red;
+    font-size: 16px;
+    /* 字体大小 */
+}
+.container {
+    text-align: center;
+    margin-left : 90px;
+    background: white;
+    padding: 10px;
+    width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.json-input {
+    width: 80%;
+    height: 700px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* 按钮基础样式 */
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+    /* 按钮悬停交互（可选增强） */
+.submit-btn:hover {
+    background-color: #0056b3;
+    }
+.waybill-bg {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.data-field {
+    position: absolute;
+    z-index: 2;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #333;
+    pointer-events: none; /* 防止点击遮挡 */
+}
+
+/* 特殊字段样式示例 */
+.sender-address {
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 200px;
+}
