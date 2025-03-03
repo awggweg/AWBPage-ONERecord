@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // 提取第一个结果的 name 字段
       const name = data.results[0].name;
       // 显示到前端（假设有一个 id 为 "result" 的 HTML 元素）
-      document.getElementById("result").textContent = name;
+      document.getElementById("shipperName").textContent = name;
     }).catch(error => {
       console.error("Error fetching data:", error);
     });
