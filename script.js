@@ -16,11 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
                cargo:partyRole <https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#SHP> ;
                cargo:partyDetails [ cargo:name ?name ] .
       }`;
-    callApi(userInput, sparql).then(data => {
-      // 提取第一个结果的 name 字段
-      const name = data.results[0].name;
+    callApi(userInput).then(data => {
+
       // 显示到前端（假设有一个 id 为 "result" 的 HTML 元素）
-      document.getElementById("shipperName").textContent = name;
+      document.getElementById("shipperName").textContent = data.shipper_info[0].name;
+      document.getElementById("consigneeName").textContent = data.consignee_info[0].name;
+
     }).catch(error => {
       console.error("Error fetching data:", error);
     });
@@ -30,10 +31,9 @@ function processInput() {
     console.log("User hello input:", userInput);
 }
 
-function callApi(userInput,sparql) {
+function callApi(userInput) {
 
   var data = {
-    sparql: sparql,
     jsonld: JSON.parse(userInput)
   };
 

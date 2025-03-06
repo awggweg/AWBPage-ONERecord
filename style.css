@@ -18,7 +18,12 @@
     
 }
 #shipperName {
-    position: absolute; top: 68px; left: 63px; width: 200px; height: 25px; border: 1px solid red;
+    position: absolute; top: 65px; left: 63px; width: 200px; height: 25px; border: 1px solid red;
+    font-size: 16px;
+    /* 字体大小 */
+}
+#consigneeName {
+    position: absolute; top: 138px; left: 63px; width: 200px; height: 25px; border: 1px solid red;
     font-size: 16px;
     /* 字体大小 */
 }

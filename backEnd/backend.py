@@ -52,7 +52,7 @@ class JsonldProcessor:
     def execute_sparql_query(self,sparql_query):
         """执行 SPARQL 查询并返回 JSON 序列化结果"""
         results = self.graph.query(sparql_query)
-        print(results)
+        # print(results)
         # 将 SPARQL 结果转换为 JSON 格式
         if results.type == 'SELECT':
             return [{
