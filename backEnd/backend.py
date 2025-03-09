@@ -4,6 +4,7 @@ from rdflib import Graph
 from rdflib.plugins.sparql import processUpdate
 import json
 from sparql_queries import InvolvedParty
+import time
 
 app = Flask(__name__)
 
@@ -22,21 +23,18 @@ def handle_query():
     }
     response = {}
     processor = JsonldProcessor(data['jsonld'])
-    # try:
-    #     由processor进行查询
-    #     results = processor.execute_sparql_query( InvolvedParty.SHIPPERNAME )#ShipperName托运人信息
-    #     result2 = processor.execute_sparql_query( InvolvedParty.CONSIGNEENAME )#ConsigneeName收货人信息
-    #     # 3. 返回结果
-    #     return jsonify({"results": results})
-    # except Exception as e:
-    #     print(e)
-    #     return jsonify({"error": str(e)}), 400
+    
     for key, query in query_actions.items():
+        start_time = time.perf_counter()  # 记录开始时间
         try:
             result = processor.execute_sparql_query(query)
             response[key] = result
         except Exception as e:
             response[f"{key}_error"] = str(e)
+        finally:  # 无论成功与否都会执行
+            duration = time.perf_counter() - start_time  # 计算耗时
+            # 打印带查询标识和耗时的信息（保留2位小数）
+            print(f"Query '{key}' executed in {duration:.6f} seconds")
     
     return jsonify(response)
 
