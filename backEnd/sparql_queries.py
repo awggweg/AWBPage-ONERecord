@@ -15,3 +15,20 @@ class InvolvedParty:
                         cargo:partyRole <https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#CNE> ; 
                         cargo:partyDetails [ cargo:name ?name ] .
                     }"""
+
+class Weight:
+
+
+
+
+class Price:
+
+
+
+
+class FlightInformation:
+
+
+
+
+class Others:
