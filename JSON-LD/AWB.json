@@ -93,7 +93,7 @@
         "@type": "code:PrepaidCollectIndicator",
         "@id": "https://onerecord.iata.org/ns/code-lists/PrepaidCollectIndicator#P"
     },
-    "cargo:declaredValueForCarrier": {
+    "cargo:declaredValueForCarriage": {
         "@type": "cargo:CurrencyValue",
         "cargo:currencyUnit": {
             "@type": "code:CurrencyCode",
