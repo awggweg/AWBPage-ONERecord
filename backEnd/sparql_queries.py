@@ -31,4 +31,4 @@ class FlightInformation:
 
 
 
-class Others:
+class Others:1
