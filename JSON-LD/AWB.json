@@ -25,26 +25,42 @@
             }
         },
         {
-            "@type": "cargo:Party",
-            "cargo:partyDetails": {
-                "@type": "cargo:Organization",
-                "cargo:name": "OCS OSAKA OFFICE",
-                "cargo:basedAtLocation": {
-                    "@type": "cargo:Location",
-                    "cargo:locationName": "SENSHU KUKO MINAMI SENNAN SHI"
+                "@type": "cargo:Party",
+                "cargo:partyDetails": {
+                    "@type": "cargo:Organization",
+                    "cargo:name": "OCS OSAKA OFFICE",
+                    "cargo:basedAtLocation": {
+                        "@type": "cargo:Location",
+                        "cargo:locationName": "SENSHU KUKO MINAMI SENNAN SHI"
+                    }
+                },
+                "cargo:partyRole": {
+                    "@type": "code:ParticipantIdentifier",
+                    "@id": "https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#CNE"
                 }
-            },
-            "cargo:partyRole": {
-                "@type": "code:ParticipantIdentifier",
-                "@id": "https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#CNE"
-            }
         },
+		{
+			"@type": "cargo:Party",
+                "cargo:partyDetails": {
+                    "@type": "cargo:Company",
+                    "cargo:name": " ",
+					"cargo:iataCargoAgentCode":"",
+                    "cargo:basedAtLocation": {
+                        "@type": "cargo:Location",
+                        "cargo:locationName": ""
+                    }
+                },
+                "cargo:partyRole": {
+                    "@type": "code:ParticipantIdentifier",
+                    "@id": "https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#AGT"
+                }
+		},
         {
             "@type": "cargo:Party",
             "cargo:partyDetails": {
                 "@type": "cargo:Carrier",
-                "cargo:name": "Shandong Airline 山东航空股份有限公司",
-                "shortName": "SDA",
+                "cargo:name": "Shandong Airline",
+                "cargo:shortName": "SDA",
                 "cargo:airlineCode": "SC"
             },
             "cargo:partyRole": {
@@ -53,23 +69,23 @@
             }
         }
     ],
-    "cargo:accountingNotes":[
+    "cargo:accountingNotes": [
         {
-            "@type":"cargo:AccountingNote",
-            "cargo:accountingNoteText":"运单修改1次 08631297"
+            "@type": "cargo:AccountingNote",
+            "cargo:accountingNoteText": "运单修改1次 08631297"
         }
     ],
     "cargo:arrivalLocation": {
         "@type": "cargo:Location",
         "cargo:locationCodes": {
-            "@type": "CodeListElement",
+            "@type": "cargo:CodeListElement",
             "cargo:code": "KIX"
         }
     },
     "cargo:departureLocation": {
         "@type": "cargo:Location",
         "cargo:locationCodes": {
-            "@type": "CodeListElement",
+            "@type": "cargo:CodeListElement",
             "cargo:code": "TAO"
         }
     },
@@ -97,7 +113,7 @@
         "@type": "cargo:Shipment",
         "cargo:insurance": {
             "@type": "cargo:Insurance",
-            "cargo:inssuredAmount": {
+            "cargo:insuredAmount": {
                 "@type": "cargo:CurrencyValue",
                 "cargo:currencyUnit": {
                     "@type": "code:CurrencyCode",
@@ -106,28 +122,12 @@
                 "cargo:numericalValue": 0
             }
         },
-        "cargo:totalGrossWeight": {
-            "@type": "cargo:Value",
-            "cargo:unit": {
-                "@id": "https://onerecord.iata.org/ns/code-lists/MeasurementUnitCode#KGM"
-            },
-            "cargo:numericalValue": 391
-        },
         "cargo:pieces": [
             {
-                "@type": "cargo:Piece",
-                "cargo:totalVolumetricWeight": {
-                    "@type": "cargo:volumetricWeight",
-                    "cargo:chargeableWeight": {
-                        "@type": "cargo:Value"
-                    },
-                    "cargo:unit": {
-                        "@id": "https://onerecord.iata.org/ns/code-lists/MeasurementUnitCode#KGM"
-                    },
-                    "cargo:numericalValue": 763
-                }
+                "@id":"https://pieces_example"
             }
         ],
+		"cargo:totalGrossWeight":"",
         "cargo:totalDimensions": [
             {
                 "cargo:volume": {
@@ -138,7 +138,8 @@
                     "cargo:numericalValue": 391
                 }
             }
-        ]
+        ],
+		"cargo:textualHandlingInstructions":[""]
     },
     "cargo:waybillLineItems": [
         {
@@ -152,23 +153,20 @@
                     "@type": "code:CurrencyCode",
                     "@value": "CNY"
                 },
-                "cargo:numericalValue": 0
-            }
+                "cargo:numericalValue": 6.5
+            },
+			"cargo:pieceReferences":[
+				{
+					"@id":"https://pieces_example"
+				}
+			
+			]
         }
     ],
     "cargo:referredBookingOption": {
         "@type": "cargo:Booking",
         "cargo:bookingRequest": {
             "@type": "cargo:BookingRequest",
-            "cargo:bookingShipmentDetails": {
-                "@type": "cargo:BookingShipment",
-                "cargo:pieceGroups": [
-                    {
-                        "@type": "cargo:PieceGroup",
-                        "cargo:pieceGroupCount": 31
-                    }
-                ]
-            },
             "cargo:forBookingOption": {
                 "@type": "cargo:BookingOption",
                 "cargo:transportLegs": [
@@ -180,32 +178,27 @@
                             "@value": "2025-02-07T14:30:45"
                         },
                         "cargo:arrivalLocation": {
-                        "@type": "cargo:Location",
-                        "cargo:locationCodes": {
-                            "@type": "CodeListElement",
-                            "cargo:code": "KIX"
-                         }
+                            "@type": "cargo:Location",
+                            "cargo:locationCodes": {
+                                "@type": "cargo:CodeListElement",
+                                "cargo:code": "KIX"
+                            }
                         },
                         "cargo:departureLocation": {
                             "@type": "cargo:Location",
                             "cargo:locationCodes": {
-                                "@type": "CodeListElement",
+                                "@type": "cargo:CodeListElement",
                                 "cargo:code": "TAO"
                             }
                         }
-                        
                     }
-                ],
-                "cargo:price": {
-                    "@type": "cargo:Price",
-                    "cargo:grandTotal": 4960
-                }
+                ]
             }
         }
     },
-    "cargo:otherChargesIndicator":{
-        "@type":"code:PrepaidCollectIndicator",
-        "@id":"code:PrepaidCollectIndicator#P"
+    "cargo:otherChargesIndicator": {
+        "@type": "code:PrepaidCollectIndicator",
+        "@id": "code:PrepaidCollectIndicator#P"
     },
     "cargo:otherCharges": [
         {
@@ -213,7 +206,10 @@
             "cargo:otherChargeCode": {
                 "@id": "https://onerecord.iata.org/ns/code-lists/OtherChargeCode#AW"
             },
-            "cargo:reasonDescription": "制单费",
+			"cargo:entitlement":{
+				"@id":"https://onerecord.iata.org/ns/code-lists/EntitlementCode#C"
+			},
+            "cargo:reasonDescription": "Air Waybill Fee due carrier",
             "cargo:otherChargeAmount": {
                 "@type": "cargo:CurrencyValue",
                 "cargo:currencyUnit": {
@@ -228,7 +224,10 @@
             "cargo:otherChargeCode": {
                 "@id": "https://onerecord.iata.org/ns/code-lists/OtherChargeCode#IN"
             },
-            "cargo:reasonDescription": "保险费",
+			"cargo:entitlement":{
+				"@id":"https://onerecord.iata.org/ns/code-lists/EntitlementCode#C"
+			},
+            "cargo:reasonDescription": "Insurance Premium due carrier",
             "cargo:otherChargeAmount": {
                 "@type": "cargo:CurrencyValue",
                 "cargo:currencyUnit": {
@@ -240,9 +239,9 @@
         },
         {
             "@type": "cargo:OtherCharge",
-            "cargo:entitlement":{
-                "@type":"cargo:EntitlementCode",
-                "@id":"https://onerecord.iata.org/ns/code-lists/EntitlementCode#A"
+            "cargo:entitlement": {
+                "@type": "cargo:EntitlementCode",
+                "@id": "https://onerecord.iata.org/ns/code-lists/EntitlementCode#A"
             },
             "cargo:reasonDescription": "Total Other Charges Due Agent",
             "cargo:otherChargeAmount": {
@@ -251,14 +250,14 @@
                     "@type": "code:CurrencyCode",
                     "@value": "CNY"
                 },
-                "cargo:numericalValue": 62
+                "cargo:numericalValue": 0
             }
         },
         {
             "@type": "cargo:OtherCharge",
-            "cargo:entitlement":{
-                "@type":"cargo:EntitlementCode",
-                "@id":"https://onerecord.iata.org/ns/code-lists/EntitlementCode#C"
+            "cargo:entitlement": {
+                "@type": "cargo:EntitlementCode",
+                "@id": "https://onerecord.iata.org/ns/code-lists/EntitlementCode#C"
             },
             "cargo:reasonDescription": "Total Other Charges Due Carrier",
             "cargo:otherChargeAmount": {
@@ -267,20 +266,20 @@
                     "@type": "code:CurrencyCode",
                     "@value": "CNY"
                 },
-                "cargo:numericalValue": 0
+                "cargo:numericalValue": 62
             }
         }
     ],
-    "cargo:consignorDeclarationSignature": "???",
-    "cargo:carrierDeclarationSignature": "",
+    "cargo:consignorDeclarationSignature": "OCS SHANGHAI CO LTD",
+    "cargo:carrierDeclarationSignature": "Shandong Airline",
     "cargo:carrierDeclarationDate": {
         "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
-        "@value": "2023-02-06T14:30:45"
+        "@value": "2025-02-06"
     },
     "cargo:carrierDeclarationPlace": {
         "@type": "cargo:Location",
         "cargo:locationCodes": {
-            "@type": "CodeListElement",
+            "@type": "cargo:CodeListElement",
             "cargo:code": "TNA"
         }
     }

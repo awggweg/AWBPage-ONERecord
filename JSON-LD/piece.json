@@ -31,6 +31,12 @@
 					}
 				},
 				"cargo:specialHandlingCodes":"",
-				"cargo:nvdForCarriage":"TURE",
-				"cargo:nvdForCustoms":"TURE"
+				"cargo:nvdForCarriage":{
+					"@type":"http://www.w3.org/2001/XMLSchema#boolean",
+					"@value":"TURE"
+				},
+				"cargo:nvdForCustoms":{
+					"@type":"http://www.w3.org/2001/XMLSchema#boolean",
+					"@value":"TURE"
+				},
 }
