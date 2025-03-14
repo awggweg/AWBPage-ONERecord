@@ -1,6 +1,14 @@
 # AWBPage-ONERecord
 A web application that recognizes and fills in the AWB template with the ONE Record standard AWB-JSON-ld data
 
+### References
+
+[RDF 和 SPARQL 初探：以维基数据为例](https://www.ruanyifeng.com/blog/2020/02/sparql.html)
+
+[One Record Specification (Air Waybill)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/waybill/)
+
+[One Record Specification (Code Lists)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/code-lists/)
+
 ### Quick Start
 
 Front end:
