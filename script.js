@@ -8,14 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     getShipperName(userInput);
   });
   function getShipperName(userInput) {
-    const sparql = `
-      PREFIX cargo: <https://onerecord.iata.org/ns/cargo#>
-      PREFIX code: <https://onerecord.iata.org/ns/code-lists/>
-      SELECT ?name WHERE {
-        ?party a cargo:Party ;
-               cargo:partyRole <https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#SHP> ;
-               cargo:partyDetails [ cargo:name ?name ] .
-      }`;
     callApi(userInput).then(data => {
 
       // 显示到前端（假设有一个 id 为 "result" 的 HTML 元素）

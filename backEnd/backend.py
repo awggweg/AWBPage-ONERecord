@@ -20,7 +20,10 @@ def handle_query():
     query_actions = {
         "shipper_info": InvolvedParty.SHIPPERNAME,
         "consignee_info": InvolvedParty.CONSIGNEENAME
+        
     }
+
+
     response = {}
     processor = JsonldProcessor(data['jsonld'])
     
