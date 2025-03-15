@@ -21,6 +21,7 @@ def handle_query():
         "shipper_info": InvolvedParty.SHIPPERNAME,
         "consignee_info": InvolvedParty.CONSIGNEENAME,
         "Airport_of_Destination": FightInformation.ARRIVALLOCATIONCODE,
+
     }
     response = {}
     processor = JsonldProcessor(data['jsonld'])
