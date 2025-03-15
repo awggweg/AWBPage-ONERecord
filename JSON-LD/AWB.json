@@ -65,7 +65,7 @@
             },
             "cargo:partyRole": {
                 "@type": "code:ParticipantIdentifier",
-                "@value": "https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#AIR"
+                "@id": "https://onerecord.iata.org/ns/code-lists/ParticipantIdentifier#AIR"
             }
         }
     ],
