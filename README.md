@@ -9,6 +9,8 @@ A web application that recognizes and fills in the AWB template with the ONE Rec
 
 [One Record Specification (Code Lists)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/code-lists/)
 
+[CBP Export Manifest Implementation Guide IATA Cargo-XML Messages Specification](https://www.cbp.gov/sites/default/files/assets/documents/2020-Feb/ACE%20CBP%20Export%20Manifest%20Implementation%20Guide%20v02_0.pdf)
+
 ### Quick Start
 
 Front end:
