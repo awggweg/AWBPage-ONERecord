@@ -3,7 +3,7 @@ from flask_cors import CORS
 from rdflib import Graph
 from rdflib.plugins.sparql import processUpdate
 import json
-from sparql_queries import InvolvedParty, FightInformation
+from sparql_queries import *
 import time
 
 app = Flask(__name__)
@@ -20,8 +20,16 @@ def handle_query():
     query_actions = {
         "shipper_info": InvolvedParty.SHIPPERNAME,
         "consignee_info": InvolvedParty.CONSIGNEENAME,
-        "Airport_of_Destination": FightInformation.ARRIVALLOCATIONCODE,
-
+        "To": FightInformation.arrivalLocationCode,
+        "Airport_of_Departure": FightInformation.departureLocation,
+        "First_Carrier": FightInformation.airlineCode,
+        "Airport_of_Destination": FightInformation.locationName,
+        "Flight": FightInformation.transportIdentifier,
+        "Date": FightInformation.departureDate,
+        "No_of_Pieces": BasicWaybillInformation.pieceReferences,
+        "Signature_of_Shipper_or_his Agent": BasicWaybillInformation.consignorDeclarationSignature,
+        "Executed_Date": BasicWaybillInformation.carrierDeclarationDate,
+        "Excuted_Place": BasicWaybillInformation.carrierDeclarationPlace
     }
     response = {}
     processor = JsonldProcessor(data['jsonld'])
