@@ -3,7 +3,7 @@ from flask_cors import CORS
 from rdflib import Graph
 from rdflib.plugins.sparql import processUpdate
 import json
-from sparql_queries import InvolvedParty
+from sparql_queries import InvolvedParty, FightInformation
 import time
 
 app = Flask(__name__)
@@ -19,7 +19,8 @@ def handle_query():
         return jsonify({"error": "Missing 'jsonld' in request body"}), 400
     query_actions = {
         "shipper_info": InvolvedParty.SHIPPERNAME,
-        "consignee_info": InvolvedParty.CONSIGNEENAME
+        "consignee_info": InvolvedParty.CONSIGNEENAME,
+        "Airport_of_Destination": FightInformation.ARRIVALLOCATIONCODE,
     }
     response = {}
     processor = JsonldProcessor(data['jsonld'])

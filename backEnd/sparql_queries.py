@@ -16,19 +16,21 @@ class InvolvedParty:
                         cargo:partyDetails [ cargo:name ?name ] .
                     }"""
 
-class Weight:
+class FightInformation:
+    ARRIVALLOCATIONCODE="""PREFIX cargo: <https://onerecord.iata.org/ns/cargo#> 
+                    PREFIX code: <https://onerecord.iata.org/ns/code-lists/> 
+                    SELECT ?code 
+                    WHERE { 
+                        # ?waybill a cargo:Waybill ;
+                        # cargo:arrivalLocation ?location .
+                        ?location a cargo:Location ; 
+                        cargo:locationCodes ?locationCodes . 
+                        ?locationCodes cargo:code ?code .
+                    
+                    }"""
 
 
 
 
-class Price:
 
 
-
-
-class FlightInformation:
-
-
-
-
-class Others:1
