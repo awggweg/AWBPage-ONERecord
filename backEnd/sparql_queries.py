@@ -31,25 +31,25 @@ class FightInformation:
 
     departureLocation="""PREFIX cargo: <https://onerecord.iata.org/ns/cargo#> 
                     PREFIX code: <https://onerecord.iata.org/ns/code-lists/> 
-                    SELECT ?departurelocation 
+                    SELECT ?code 
                     WHERE { 
                         ?waybill a cargo:Waybill ;
                         cargo:departureLocation ?location .
                         ?location a cargo:Location ; 
                         cargo:locationCodes ?locationCodes . 
-                        ?locationCodes cargo:code ?departurelocation .
+                        ?locationCodes cargo:code ?code .
                     
                     }"""
 
     airlineCode="""PREFIX cargo: <https://onerecord.iata.org/ns/cargo#> 
                         PREFIX code: <https://onerecord.iata.org/ns/code-lists/> 
-                        SELECT ?airlineCode 
+                        SELECT ?code 
                         WHERE { 
                             ?party a cargo:Party ;
                                    cargo:partyDetails ?carrierDetails .
                             
                             ?carrierDetails a cargo:Carrier ; 
-                                            cargo:airlineCode ?airlineCode . 
+                                            cargo:airlineCode ?code . 
                         }"""
 
     locationName=arrivalLocationCode
@@ -138,14 +138,14 @@ WHERE {
     carrierDeclarationPlace="""
     PREFIX cargo: <https://onerecord.iata.org/ns/cargo#>
 
-SELECT ?locationCode
+SELECT ?code
 WHERE {
   # 从 Waybill 导航到 Location
   ?waybill a cargo:Waybill ;
     cargo:carrierDeclarationPlace ?place .
 
   # 提取 Location 的 locationCodes 中的 code
-  ?place cargo:locationCodes/cargo:code ?locationCode .
+  ?place cargo:locationCodes/cargo:code ?code .
 }
     """
 
