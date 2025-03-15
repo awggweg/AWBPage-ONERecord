@@ -15,11 +15,16 @@ CORS(app, resources={r"/query": {"origins": "http://127.0.0.1:3000"}})
 def handle_query():
     # 校验请求数据格式
     data = request.get_json()
-    if not data or 'jsonld' not in data:
-        return jsonify({"error": "Missing 'jsonld' in request body"}), 400
+    if not data or 'waybill' not in data:
+        return jsonify({"error": "Missing 'waybill' in request body"}), 400
     query_actions = {
-        "shipper_info": InvolvedParty.SHIPPERNAME,
-        "consignee_info": InvolvedParty.CONSIGNEENAME,
+        #相关方信息
+        "Shipper": InvolvedParty.shipper,
+        "Consignee": InvolvedParty.consinee,
+        "Issued_by":InvolvedParty.airline,
+        "Issuing_Carrier_Agent":InvolvedParty.carrierAgent,
+        "Accounting_Information":InvolvedParty.accountingInformation
+        #航班信息
         "To": FightInformation.arrivalLocationCode,
         "Airport_of_Departure": FightInformation.departureLocation,
         "First_Carrier": FightInformation.airlineCode,
@@ -32,7 +37,7 @@ def handle_query():
         "Excuted_Place": BasicWaybillInformation.carrierDeclarationPlace
     }
     response = {}
-    processor = JsonldProcessor(data['jsonld'])
+    processor = JsonldProcessor(data['waybill'])
     
     for key, query in query_actions.items():
         start_time = time.perf_counter()  # 记录开始时间
@@ -63,22 +68,29 @@ class JsonldProcessor:
         # print(results)
         # 将 SPARQL 结果转换为 JSON 格式
         if results.type == 'SELECT':
-            return [{
-                str(var): str(val) 
-                for var, val in row.asdict().items()
-            } for row in results]
-        elif results.type == 'CONSTRUCT':
-            # 如果是 CONSTRUCT 查询，返回三元组列表
-            return [
-                {
-                    "subject": str(triple[0]),
-                    "predicate": str(triple[1]),
-                    "object": str(triple[2])
-                } 
-                for triple in results
-            ]
-        else:
-            return []
+            # 将结果转换为列表，以便获取行数
+            rows = list(results)
+            
+            # 如果没有结果，返回空列表 []
+            if len(rows) == 0:
+                return []
+            
+            # 如果只有一行，返回单个字典 {}
+            elif len(rows) == 1:
+                return {
+                    str(var): str(val) 
+                    for var, val in rows[0].asdict().items()
+                }
+            
+            # 如果有多行，返回列表 [ {}, {}, ... ]
+            else:
+                return [
+                    {
+                        str(var): str(val) 
+                        for var, val in row.asdict().items()
+                    } 
+                    for row in rows
+                ]
 
 
 
