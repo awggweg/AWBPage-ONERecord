@@ -1,16 +1,6 @@
 # AWBPage-ONERecord
 A web application that recognizes and fills in the AWB template with the ONE Record standard AWB-JSON-ld data
 
-### References
-
-[RDF 和 SPARQL 初探：以维基数据为例](https://www.ruanyifeng.com/blog/2020/02/sparql.html)
-
-[One Record Specification (Air Waybill)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/waybill/)
-
-[One Record Specification (Code Lists)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/code-lists/)
-
-[CBP Export Manifest Implementation Guide IATA Cargo-XML Messages Specification](https://www.cbp.gov/sites/default/files/assets/documents/2020-Feb/ACE%20CBP%20Export%20Manifest%20Implementation%20Guide%20v02_0.pdf)
-
 ### Quick Start
 
 Front end:
@@ -108,3 +98,14 @@ Response
 }
 ```
 
+### References
+
+[RDF 和 SPARQL 初探：以维基数据为例](https://www.ruanyifeng.com/blog/2020/02/sparql.html)
+
+[One Record Specification (Air Waybill)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/waybill/)
+
+[One Record Specification (Code Lists)](https://iata-cargo.github.io/ONE-Record/development/Data-Model/code-lists/)
+
+[CBP Export Manifest Implementation Guide IATA Cargo-XML Messages Specification](https://www.cbp.gov/sites/default/files/assets/documents/2020-Feb/ACE%20CBP%20Export%20Manifest%20Implementation%20Guide%20v02_0.pdf)
+
+[Air Waybill Template](https://airwaybillform.com/)
